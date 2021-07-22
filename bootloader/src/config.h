@@ -20,6 +20,20 @@
 #define BL_OUTPUT_PIN 12
 #define BL_INPUT_BANK GPIOB
 #define BL_INPUT_PIN 13
+#elif defined(TARGET_BALDOR)
+/*
+  This should match the UID you have configured in the Vial firmware
+  See Vial porting docs for more info: https://vial-kb.github.io/gettingStarted/porting-to-vial.html
+*/
+#define VIAL_KEYBOARD_UID {0xBF, 0xFB, 0x0F, 0xF8, 0x22, 0x44, 0x50, 0xF0}
+/*
+  These configure an emergency key held to trigger bootloader entry on boot.
+  See https://github.com/xyzz/stm32f103-keyboard-bootloader#adding-a-new-keyboard for an explanation.
+*/
+#define BL_OUTPUT_BANK GPIOA
+#define BL_OUTPUT_PIN 6
+#define BL_INPUT_BANK GPIOA
+#define BL_INPUT_PIN 15
 #else
 #error Unknown target
 #endif
